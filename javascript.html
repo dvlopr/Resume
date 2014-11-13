@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en" >
+	<head>
+		<title>Resume - Javascript Version</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="css/resume.css" />
+		<script type="text/javascript" src="js/javascript.js"></script>
+	</head>
+	<body>
+		<!-- begin resume -->
+
+		<header id="site-header">
+			<div id="logo">Steven Chin's Resume</div>
+
+			<nav>
+				<a href="index.html">HOME</a>
+				<a href="contactme.html">CONTACT ME</a>
+			</nav>
+		</header>
+
+		<div id="page">
+
+			<!-- -->
+			<div class="resume-section resume-header">
+				<script type="text/javascript">
+					document.write("<h1>"+oResume.Name+"</h1>");
+					document.write("<label id='resume-address'>"+oResume.Street+" "+oResume.City+" "+oResume.State+" "+oResume.Zip+"</label>");
+					document.write("<label id='resume-contact'>");
+					document.write(" "+"<label>(347) 328-3628</label>"+" ");
+					document.write(" "+"<a href='mailto:e.nigma@inbox.com'>e.nigma@inbox.com</a>"+" ");
+					document.write(" "+"<a href='https://www.linkedin.com/in/chinsteve'>www.linkedin.com/in/chinsteve</a>"+" ");
+					document.write("</label>");
+				</script>
+			</div>
+
+			<!-- -->
+			<div class="resume-section summary">
+				<script type="text/javascript">
+					document.write("<h2>SUMMARY</h2>");
+					document.write("<p>"+oResume.Summary+"</p>");
+				</script>
+			</div>
+
+			<!-- -->
+			<div class="resume-section resume-body">
+
+				<!-- -->
+				<div class="resume-section employment">
+
+					<script type="text/javascript">
+						document.write("<h2>EMPLOYMENT</h2>");
+
+						//to loop through all the employment in the resume object
+						for(var i=0; i<oResume.Employment.length; i++) {
+							document.write("<h3>"+oResume.Employment[i].Name+" -- "+oResume.Employment[i].Years+"</h3>");
+
+							//to loop through the employment title and duties
+							for(var x=0;x<oResume.Employment[i].Job.Title.length;x++){
+								document.write(oResume.Employment[i].Job.Title[x]);
+
+								document.write("<ul>");
+								for(var y=0; y<oResume.Employment[i].Job.Duties.length; y++){
+
+									if(oResume.Employment[i].Job.Title.length > 1) {
+										document.write("<li>"+oResume.Employment[i].Job.Duties[y][x]+"</li>");
+									}else{
+										document.write("<li>"+oResume.Employment[i].Job.Duties[y]+"</li>");
+									}//end if
+
+									z=0;
+								}//end for
+								document.write("</ul>");
+								
+							}
+							x=0;
+						}//end for
+					</script>
+					
+					
+
+					<!--
+					<h3>Gibney, Anthony & Flaherty, LLP — 2007 : 2014</h3>
+					<h4>Software Development Engineer</h4>
+					<ul>
+						<li>Used C#.Net to create a ‘Check-request’ System including Win-Forms with MS SQL for backend storage and Visual Studio Express IDE</li>
+						<li>Used VBA (Visual Basic 6) to create different Macro applications (Barclay’s Reporting, Verizon User Reports, etc)</li>
+						<li>Used VB.Net to create an e-Mailer System complete with MS SQL for backend storage using Visual Studio Express IDE</li>
+						<li>Used ASP.NET to code various user requested software using Visual Studio Express IDE</li>
+						<li>Currently working on Objective-C / Java code for company mobile solutions using Apple XCode / NetBeans IDE</li>
+					</ul>
+					-->
+				</div>
+
+
+				<!-- -->
+				<div class="resume-section education">
+					<script type="text/javascript">
+						document.write("<h2>EDUCATION</h2>");
+						for(var i=0;i<oResume.Education.length;i++){
+							document.write("<h3>"+oResume.Education[i].Name+" -- "+ oResume.Education[i].SchoolLocation+"</h3>");
+							document.write("<h4 class='degree'>"+oResume.Education[i].Degree+"<br />"+oResume.Education[i].Accomplishments+"</h4>");
+
+							document.write("<table>");
+							if(oResume.Education[i].Name === "Kaplan University"){
+								document.write("<thead><tr><th>RELEVANT COURSEWORK - KAPLAN</th></tr></thead>");
+							}else{
+								document.write("<thead><tr><th>RELEVANT COURSEWORK - TCI</th></tr></thead>");
+							}
+							document.write("<tbody>");
+
+							document.write("<tr>");
+							for(var y=0; y<oResume.Education[i].RelevantCoursework.length; y++){
+								
+								if(y % 3 == 2) {
+									document.write("<td>"+oResume.Education[i].RelevantCoursework[y]+"</td></tr>");
+								}else{
+									document.write("<td>"+oResume.Education[i].RelevantCoursework[y]+"</td>");	
+								}
+								
+								
+							}
+
+							document.write("</tbody>");
+							document.write("</table>");
+						}
+
+					</script>
+				</div>
+
+
+				<!-- -->
+				<div class="resume-section skills">
+					<script type="text/javascript">
+						document.write("<h2>SKILLS</h2>");
+
+
+						for(var i=0;i<oResume.Skills.length;i++) {
+							document.write("<table>");
+
+							document.write("<thead><tr><th>"+oResume.Skills[i].Subject+"</th></tr></thead>");
+							
+							document.write("<tbody>");
+							document.write("<tr>");
+							for(var y=0; y<oResume.Skills[i].Ability.length; y++){
+								if(y % 3 == 2) {
+									document.write("<td>"+oResume.Skills[i].Ability[y]+"</td></tr>");
+								}else{
+									document.write("<td>"+oResume.Skills[i].Ability[y]+"</td>");
+								}
+							}
+
+							document.write("</tbody>");
+							document.write("</table>");
+						}
+					</script>
+				</div>
+
+
+				<!-- -->
+				<div class="resume-section certifications">
+					<script type="text/javascript">
+						document.write("<h2>CERTIFICATIONS</h2>");
+
+						for(var i=0;i<oResume.Certifications.length;i++) {
+							document.write(oResume.Certifications[i]);
+							document.write("<br />");
+						}
+					</script>
+				</div>
+
+
+
+
+			</div>
+		</div>
+		<!-- -->
+		<footer id="site-footer"></footer>
+
+		<!--scripts -->
+	</body>
+</html>
